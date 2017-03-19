@@ -1,0 +1,22 @@
+{
+    "name": "basal/middleman-basal-middleware-dispatcher",
+    "description": "Middleman middleware dispatcher implementation for Basal (PSR-15 single pass / lambda style)",
+    "type": "package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Basal",
+            "email": "basal.php@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Basal\\MiddlewareDispatcher\\Middleman\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.5",
+        "mindplay/middleman": "3.0.0.x-dev",
+        "basal/basal": "dev-master"
+    }
+}
