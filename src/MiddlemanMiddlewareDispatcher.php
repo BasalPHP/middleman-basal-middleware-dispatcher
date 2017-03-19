@@ -21,9 +21,9 @@ final class MiddlemanMiddlewareDispatcher implements MiddlewareDispatcherInterfa
         try {
             return (new Dispatcher($stack))->dispatch($request);
         } catch (\InvalidArgumentException $exception) {
-            throw new EmptyStackException('Middleware stack is empty');
+            throw new EmptyStackException('Middleware stack is empty', 0, $exception);
         } catch (\Exception $exception) {
-            throw new MiddlewareDispatcherException('Dispatching middleware stack failed');
+            throw new MiddlewareDispatcherException('Dispatching middleware stack failed', 0, $exception);
         }
     }
 }
