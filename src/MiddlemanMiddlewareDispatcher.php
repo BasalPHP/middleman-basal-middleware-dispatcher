@@ -2,6 +2,8 @@
 
 namespace Basal\MiddlewareDispatcher\Middleman;
 
+use Basal\Middleware\Exception\EmptyStackException;
+use Basal\Middleware\Exception\MiddlewareDispatcherException;
 use Basal\Middleware\MiddlewareDispatcherInterface;
 use mindplay\middleman\Dispatcher;
 use Psr\Http\Message\ServerRequestInterface;
@@ -16,6 +18,12 @@ final class MiddlemanMiddlewareDispatcher implements MiddlewareDispatcherInterfa
      */
     public function dispatch(ServerRequestInterface $request, array $stack)
     {
-        return (new Dispatcher($stack))->dispatch($request);
+        try {
+            return (new Dispatcher($stack))->dispatch($request);
+        } catch (InvalidArgumentException $exception) {
+            throw new EmptyStackException('Middleware stack is empty');
+        } catch (\Exception $exception) {
+            throw new MiddlewareDispatcherException('Dispatching middleware stack failed');
+        }
     }
 }
