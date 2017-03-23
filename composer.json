@@ -1,7 +1,7 @@
 {
     "name": "basal/middleman-basal-middleware-dispatcher",
     "description": "Middleman middleware dispatcher implementation for Basal (PSR-15 single pass / lambda style)",
-    "type": "package",
+    "type": "project",
     "license": "MIT",
     "authors": [
         {
